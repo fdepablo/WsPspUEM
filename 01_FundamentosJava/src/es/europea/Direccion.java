@@ -30,6 +30,4 @@ public class Direccion {
 	public void setCp(String cp) {
 		this.cp = cp;
 	}
-	
-	
 }

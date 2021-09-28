@@ -1,6 +1,5 @@
 package es.europea;
 
-import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.List;
 
@@ -8,14 +7,13 @@ import java.util.List;
 //como molde para crear objetos
 
 //Un instacia concreta de una clase
-public class MainFundamentos {
+public class _01_MainFundamentos {
 
 	/*
 	 * El ciclo de vida de un programa en java es desde que arranca y ejecuta
 	 * el metodo main, hasta que acaba el metodo main (en un programa monohilo)
 	 */
 	public static void main(String[] args) {
-		// TODO Auto-generated method stub
 		// El ciclo de vida de un objeto es desde que nace con la palabra
 		//reservada "new" hasta que muere cuando no haya ninguna referencia
 		//apuntadole ya que el garbage colleector lo eliminaria
