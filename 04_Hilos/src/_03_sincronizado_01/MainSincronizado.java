@@ -22,7 +22,9 @@ public class MainSincronizado {
 		} catch (InterruptedException e) {
 			e.printStackTrace();
 		}
-		
+		t1.setPriority(Thread.MAX_PRIORITY);
+		t2.setPriority(5);
+		t3.setPriority(Thread.MIN_PRIORITY);
 		t1.start();
 		t2.start();
 		t3.start();
