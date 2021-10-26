@@ -16,14 +16,14 @@ public class Cola {
 	//recurso es thread safe
 	public synchronized void addMensaje(String mensaje){
 		//Esto así solo no funcionaria, ya que si llega un productor y la cola esta 
-		//llena
-		//perderiamos un mensaje, debemos implementar una cola activa
+		//llena perderiamos un mensaje, debemos implementar una cola activa
 		/*if(cola.size() < MAX_ELEMENTOS){
 			cola.offer(mensaje);
 		}*/
 		//Si la cola esta llena no debemos introducir ningun elemento más
 		while(cola.size() == MAX_ELEMENTOS){//3
 			try {
+				System.out.println("COLA LLENA");
 				//A diferencia del sleep no se activará pasado un tiempo, sino que se
 				//activaria cuando se le notifique, ADEMAS, liberamos el recurso por 
 				//lo que otro hilo que intente entrar en addMensaje podra hacerlo. 
@@ -50,6 +50,7 @@ public class Cola {
 		String s = null;
 		while(cola.size() == 0){
 			try {
+				System.out.println("COLA VACIA");
 				wait();
 			} catch (InterruptedException e) {
 				// TODO Auto-generated catch block
