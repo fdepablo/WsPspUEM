@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+	<!-- Para dar de alta un contexto de spring por XML, usaremos un fichero de este
+	tipo, y lo llamaremos desde la app.
+	
+	Dentro de este fichero podremos dar de alta todos los beans que queramos dentro
+	de nuestro contexto de Spring.
+		
+	Para dar de alta un bean en el contexto de spring usaremos la etiqueta
+	"bean" y tendrá que tener al menos un identificador del bean "id", y la
+	class que tiene que usar Spring para instanciar el objeto
+	
+	De manera basica, debemos de tener en la clase el constructor sin parametros
+	
+	El ciclo de vida de los beans en Spring es por defecto de tipo "Singleton"
+	que se traduce en que el objeto sera unico para toda la duracion del contexto
+	de spring. Hablaremos de otros ciclos de vida más adelante
+	 -->
+	 
+	<bean id="persona1" class="es.uem.ejemplo01.Persona"/>	
+	
+	<bean id="persona2" class="es.uem.ejemplo01.Persona"/>	
+	
+	<!-- Ya que los objetos tienen propiedades, tambien podemos hacer que cuando
+	creemos en bean en el contexto de spring, cambiar el valor de dichas propiedades
+	Para ello, el objeto tiene que contar con metodos modificadores, es decir "setters"
+	 -->
+	 
+	 <bean id="persona3" class="es.uem.ejemplo01.Persona">
+	 	<property name="nombre" value="Tony Stark"></property>
+	 	<property name="edad" value="45"></property>
+	 	<property name="peso" value="85.5"></property>
+	 </bean>
+	 
+	 <bean id="persona4" class="es.uem.ejemplo01.Persona">
+	 	<constructor-arg index="0" value="Peter Parker"></constructor-arg>
+	 	<constructor-arg index="1" value="18"></constructor-arg>
+	 	<constructor-arg index="2" value="68.7"></constructor-arg>
+	 </bean>
+	 
+	 <bean id="persona5" class="es.uem.ejemplo01.Persona"  scope="singleton">
+	 	<property name="nombre" value="Pepe"></property>
+	 </bean>
+	 
+	 <bean id="persona6" class="es.uem.ejemplo01.Persona" scope="prototype">
+	 	<property name="nombre" value="Pepa"></property>
+	 </bean>
+
+</beans>
