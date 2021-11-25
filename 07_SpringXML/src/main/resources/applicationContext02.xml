@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+	<bean id="direccion1" class="es.uem.ejemplo02.Direccion">
+		<property name="tipoVia" value="Calle"></property>
+		<property name="nombreVia" value="Howards"></property>
+		<property name="ciudad" value="nunca jamas"></property>
+	</bean>
+	
+	<bean id="cliente1" class="es.uem.ejemplo02.Cliente">
+		<property name="nombre" value="Harry Potter"></property>
+		<property name="edad" value="17"></property>
+		<property name="direccion" ref="direccion1"></property>
+	</bean>
+	
+	<!-- Podemos inyectar objetos en spring mediante innterBeans 
+		Los inner bean no tienen ID
+	-->
+	<bean id="cliente2" class="es.uem.ejemplo02.Cliente">
+		<property name="nombre" value="Ernion Güesley"></property>
+		<property name="edad" value="18"></property>
+		<property name="direccion">
+			<bean class="es.uem.ejemplo02.Direccion">
+				<property name="tipoVia" value="Plaza"></property>
+				<property name="nombreVia" value="Alcabaz"></property>
+				<property name="ciudad" value="planeta vegetta777"></property>
+			</bean>
+		</property>
+	</bean>
+
+	<bean id="direccion3" class="es.uem.ejemplo02.Direccion" scope="prototype">
+		<property name="tipoVia" value="Plaza"></property>
+		<property name="nombreVia" value="Grifo cojo"></property>
+		<property name="ciudad" value="valverde"></property>
+	</bean>
+	
+	<bean id="cliente3" class="es.uem.ejemplo02.Cliente" scope="prototype">
+		<property name="nombre" value="Voldemor"></property>
+		<property name="edad" value="789"></property>
+		<property name="direccion" ref="direccion3"></property>
+	</bean>
+	
+	<bean id="listaClientes" class="java.util.LinkedList" scope="singleton"></bean>
+	
+	<bean id="contador" class="java.lang.Integer">
+		<constructor-arg index="0" value="1"></constructor-arg>
+	</bean>
+	
+	<bean id="direccion4" class="es.uem.ejemplo02.Direccion" scope="prototype">
+		<property name="tipoVia" value="Plaza"></property>
+		<property name="nombreVia" value="Murcielago tuerto"></property>
+		<property name="ciudad" value="valverde"></property>
+	</bean>
+	
+	<bean id="cliente4" class="es.uem.ejemplo02.Cliente" scope="singleton">
+		<property name="nombre" value="Jagis"></property>
+		<property name="edad" value="100"></property>
+		<property name="direccion" ref="direccion4"></property>
+	</bean>
+	
+</beans>

@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+	<bean id="v1" class="es.uem.ejemplo03.Videojuego">
+		<property name="nombre" value="Sonic"></property>
+		<property name="nota" value="10"></property>
+	</bean>
+	
+	<bean id="v2" class="es.uem.ejemplo03.Videojuego">
+		<property name="nombre" value="Mario"></property>
+		<property name="nota" value="10"></property>
+	</bean>
+	
+	<bean id="v3" class="es.uem.ejemplo03.Videojuego" scope="prototype">
+		<property name="nombre" value=""></property>
+		<property name="nota" value="5"></property>
+	</bean>
+	
+	<bean id="listaVideojuegos" class="java.util.ArrayList">
+		<constructor-arg>
+			<list value-type="es.uem.ejemplo03.Videojuego">
+				<ref bean="v1"/>
+				<ref bean="v2"/>
+				<bean class="es.uem.ejemplo03.Videojuego">
+					<property name="nombre" value="Dark Soul"></property>
+					<property name="nota" value="10"></property>
+				</bean>
+				<ref bean="v3"/>
+				<ref bean="v3"/>
+				<ref bean="v3"/>
+				<ref bean="v1"/>
+			</list>
+		</constructor-arg>
+	</bean>
+</beans>
