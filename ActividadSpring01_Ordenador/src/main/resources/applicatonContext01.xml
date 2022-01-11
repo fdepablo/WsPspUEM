@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+	<bean id="procesador1" class="ordenador_spring.entidad.Procesador">
+		<property name="numeroNucleos" value="6"></property>
+		<property name="hz" value="3.6"></property>
+		<property name="hilos" value="12"></property>
+		<property name="precio" value="160"></property>
+		<property name="marca" value="AMD"></property>
+	</bean>
+
+	<bean id="periferico1" class="ordenador_spring.entidad.Periferico">
+		<property name="precio" value="12.00"></property>
+		<property name="tipo" value="Teclado"></property>
+		<property name="marca" value="NewSkill"></property>
+	</bean>
+
+	<bean id="periferico2" class="ordenador_spring.entidad.Periferico">
+		<property name="precio" value="22.00"></property>
+		<property name="tipo" value="Mouse"></property>
+		<property name="marca" value="Logitech"></property>
+	</bean>
+
+	<bean id="ram1" class="ordenador_spring.entidad.RAM">
+		<property name="marca" value="Kingston"></property>
+		<property name="precio" value="45.50"></property>
+	</bean>
+
+	<bean id="ram2" class="ordenador_spring.entidad.RAM">
+		<property name="marca" value="Corsair"></property>
+		<property name="precio" value="65.50"></property>
+	</bean>
+
+	<bean id="ram3" class="ordenador_spring.entidad.RAM">
+		<property name="marca" value="Crucial"></property>
+		<property name="precio" value="75.50"></property>
+	</bean>
+
+	<bean id="ram4" class="ordenador_spring.entidad.RAM">
+		<property name="marca" value="Ballistic"></property>
+		<property name="precio" value="45.50"></property>
+	</bean>
+
+	<bean id="targeta1" class="ordenador_spring.entidad.TarjetaGrafica">
+		<property name="marca" value="NVIDIA"></property>
+		<property name="precio" value="250.00"></property>
+		<property name="modelo" value="GTX 1080ti"></property>
+		<property name="ram" ref="ram1"></property>
+	</bean>
+
+	<bean id="targeta2" class="ordenador_spring.entidad.TarjetaGrafica">
+		<property name="marca" value="ASUS"></property>
+		<property name="precio" value="1250.00"></property>
+		<property name="modelo" value="RTX 3080"></property>
+		<property name="ram" ref="ram2"></property>
+	</bean>
+
+	<bean id="listaTarjetas" class="java.util.ArrayList">
+		<constructor-arg>
+			<list value-type="ordenador_spring.entidad.TarjetaGrafica">
+				<ref bean="targeta1" />
+				<ref bean="targeta2" />
+			</list>
+		</constructor-arg>
+	</bean>
+
+	<bean id="listaPerifericos" class="java.util.ArrayList">
+		<constructor-arg>
+			<list value-type="ordenador_spring.entidad.Periferico">
+				<ref bean="periferico1" />
+				<ref bean="periferico2" />
+			</list>
+		</constructor-arg>
+	</bean>
+
+	<bean id="listaRam" class="java.util.ArrayList">
+		<constructor-arg>
+			<list value-type="ordenador_spring.entidad.RAM">
+				<ref bean="ram3" />
+				<ref bean="ram4" />
+			</list>
+		</constructor-arg>
+	</bean>
+
+	<bean id="ordenador1" class="ordenador_spring.entidad.Ordenador">
+		<property name="marca" value="HP"></property>
+		<property name="precio" value="900.00"></property>
+		<property name="procesador" ref="procesador1"></property>
+		<property name="listaTarjetaGraficas" ref="listaTarjetas"></property>
+		<property name="listaRam" ref="listaRam"></property>
+		<property name="listaPerifericos" ref="listaPerifericos"></property>
+	</bean>
+
+</beans>
