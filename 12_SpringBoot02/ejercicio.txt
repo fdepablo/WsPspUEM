@@ -1,0 +1,12 @@
+Hacer una aplicacion que de de alta, baja y listar Videojuegos.
+
+Los videojuegos tendran id, nombre y nota.
+
+Se tiene que hacer con spring boot y aplicando el modelo de las tres capas.
+Todo tiene que ser dinamico.
+
+La aplicacion continuara ejecutandose hasta que el usuario decida salir
+
+Reglas de negocio:
+1- No puede haber nombres vacios
+2- No puede haber notas por encima de 10 o por debajo de 0.
