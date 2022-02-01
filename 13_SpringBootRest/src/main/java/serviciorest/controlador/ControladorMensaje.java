@@ -1,6 +1,7 @@
 package serviciorest.controlador;
 import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 //El objeto creado a partir de esta clase servira como punto de entrada de 

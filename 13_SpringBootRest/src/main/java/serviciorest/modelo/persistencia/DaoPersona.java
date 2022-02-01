@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.stereotype.Component;
+import org.springframework.stereotype.Repository;
 
 import serviciorest.modelo.entidad.Persona;
 
@@ -22,7 +23,7 @@ import serviciorest.modelo.entidad.Persona;
  * lowerCamelCase
  * 
  */
-@Component
+@Repository
 public class DaoPersona {
 
 	public List<Persona> listaPersonas;
